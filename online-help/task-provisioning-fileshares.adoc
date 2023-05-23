@@ -1,0 +1,75 @@
+---
+permalink: online-help/task-provisioning-fileshares.html 
+sidebar: sidebar 
+keywords:  
+summary: 'La pagina Provision workload (carico di lavoro di provisioning) consente di creare LUN (che supportano protocolli iSCSI e FCP) o condivisioni di file (che supportano i protocolli CIFS/SMB e NFS) per un cluster e una macchina virtuale di storage (VM di storage) esistenti quando è disponibile spazio libero.' 
+---
+= Provisioning dei carichi di lavoro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pagina Provision workload (carico di lavoro di provisioning) consente di creare LUN (che supportano protocolli iSCSI e FCP) o condivisioni di file (che supportano i protocolli CIFS/SMB e NFS) per un cluster e una Storage Virtual Machine (Storage VM) esistenti quando è disponibile spazio libero.
+
+
+
+== Prima di iniziare
+
+* Almeno uno dei servizi SMB, NFS, iSCSI e FCP o tutti i servizi devono essere abilitati sulla Storage VM. Se si creano LUN, è necessario abilitare sia iSCSI che FCP.
+* Per selezionare e assegnare il livello di servizio delle performance e la policy di efficienza dello storage sul carico di lavoro, le policy devono essere state create prima di iniziare a creare il carico di lavoro.
+
+
+
+
+== Fasi
+
+. Nella pagina *carico di lavoro di provisioning*, aggiungere il nome del carico di lavoro che si desidera creare, quindi selezionare il cluster dall'elenco disponibile sul quale si desidera creare il carico di lavoro.
+. In base al cluster selezionato, il campo *STORAGE VM* filtra le macchine virtuali di storage disponibili per quel cluster. Selezionare dall'elenco la VM di storage richiesta.
++
+In base ai servizi SMB, NFS, iSCSI e FCP supportati dalla VM di storage, le opzioni NAS e SAN sono attivate nella sezione host Information (informazioni host).
+
+. Nella sezione *Storage and Optimization* (Storage e ottimizzazione), assegnare la capacità dello storage e il Performance Service Level (livello di servizio delle prestazioni) e, facoltativamente, la Storage Efficiency Policy (Policy di efficienza dello storage) per il carico di lavoro.
++
+Le specifiche per il livello di servizio delle performance vengono applicate al carico di lavoro e le specifiche per la policy di efficienza dello storage vengono assegnate al volume e al LUN, a seconda dei casi, al momento della creazione del carico di lavoro.
+
+. Selezionare la casella di controllo *Imponi limiti di performance* se si desidera applicare il livello di servizio delle performance assegnato al carico di lavoro. L'assegnazione di un Performance Service Level a un workload garantisce che l'aggregato su cui viene creato il workload possa supportare gli obiettivi di performance e capacità definiti nel rispettivo Performance Service Level. Ad esempio, se a un carico di lavoro viene assegnato "`Extreme Performance`", l'aggregato su cui deve essere eseguito il provisioning del carico di lavoro dovrebbe essere in grado di supportare gli obiettivi di performance e capacità del livello di servizio "Extreme Performance", come lo storage SSD.
++
+[NOTE]
+====
+A meno che non si selezioni questa casella di controllo, il livello di servizio delle prestazioni non viene applicato al carico di lavoro e lo stato del carico di lavoro nella dashboard viene visualizzato come non assegnato.
+
+====
+. Se si sta creando una condivisione file SMB e/o NFS, selezionare il pulsante *NAS*. Questo pulsante è abilitato per la selezione solo quando la VM di storage ha attivato i servizi richiesti.
++
+[NOTE]
+====
+Se SVM è abilitato per servizi SMB e NFS, è possibile selezionare i pulsanti *Share by NFS* e *Share by SMB* e creare una condivisione file che supporti i protocolli NFS e SMB. Se si desidera creare una condivisione SMB o CIFS, selezionare solo il pulsante corrispondente.
+
+====
++
+.. Per le condivisioni file NFS, specificare l'indirizzo IP dell'host o della rete per accedere al volume di condivisione file. È possibile immettere valori separati da virgole per più host.
++
+Quando si aggiunge l'indirizzo IP dell'host, viene eseguita una verifica interna per verificare la corrispondenza dei dettagli dell'host con la SVM e viene creata la policy di esportazione per tale host oppure, nel caso in cui esista una policy esistente, viene riutilizzata. Se sono state create diverse condivisioni NFS per lo stesso host, viene riutilizzata una policy di esportazione disponibile per lo stesso host con regole corrispondenti per tutte le condivisioni file. La funzione di specificare le regole dei singoli criteri o di riutilizzare i criteri fornendo chiavi di policy specifiche è disponibile quando si effettua il provisioning della condivisione NFS utilizzando le API.
+
+.. Per una condivisione SMB, specificare quali utenti o gruppi di utenti possono accedere alla condivisione SMB e assegnare le autorizzazioni richieste. Per ciascun gruppo di utenti, viene generato un nuovo elenco di controllo degli accessi (ACL) durante la creazione della condivisione file.
+
+
+. Per creare LUN, selezionare il pulsante *SAN*. Questo pulsante è abilitato per la selezione solo quando la VM di storage selezionata ha attivato i servizi richiesti.
++
+.. Selezionare il sistema operativo host.
+.. Specificare la mappatura host per il LUN. È possibile assegnare gruppi iniziatori esistenti (igroups) oppure definire e mappare nuovi igroups alle LUN per controllare quali iniziatori hanno accesso alle LUN.
++
+
+NOTE: Se si crea un nuovo igroup durante il provisioning del LUN, è necessario attendere il successivo ciclo di rilevamento (fino a 15 minuti) per utilizzarlo per la creazione del LUN. Si consiglia pertanto di utilizzare un igroup esistente dall'elenco di igroups disponibili.
+
++
+Se si desidera creare un nuovo igroup, selezionare il pulsante *Create a new initiator group* (Crea un nuovo gruppo di iniziatori), quindi immettere le informazioni richieste per creare l'igroup.
+
+
+
+. Fare clic su *Save* (Salva).
+
+
+Il carico di lavoro viene aggiunto all'elenco dei carichi di lavoro dello storage.

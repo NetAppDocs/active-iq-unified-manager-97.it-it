@@ -1,0 +1,77 @@
+---
+permalink: online-help/concept-monitoring-vms.html 
+sidebar: sidebar 
+keywords: virtual machines 
+summary: In caso di problemi di latenza nelle applicazioni delle macchine virtuali, potrebbe essere necessario monitorare le macchine virtuali per analizzare e risolvere il problema. 
+---
+= Monitoraggio delle macchine virtuali
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In caso di problemi di latenza nelle applicazioni delle macchine virtuali (VM), potrebbe essere necessario monitorare le macchine virtuali per analizzare e risolvere i problemi della causa.
+
+Active IQ Unified Manager consente di visualizzare la topologia dettagliata di un'applicazione VM che visualizza i componenti a cui è correlata la VM, ad esempio l'host della VM o il datastore ad essa collegato. La vista della topologia visualizza i componenti sottostanti nei rispettivi layer specifici, nel seguente ordine: *Virtual Disk* > *VM* > *host* > *Network* > *Datastore* > *VMDK*.
+
+[NOTE]
+====
+Per visualizzare le metriche del datastore (nel livello di storage), il cluster ONTAP padre deve essere aggiunto a Unified Manager e il rilevamento (polling o raccolta di metriche) per il cluster deve essere completo.
+
+====
+È possibile determinare il percorso di i/o e le latenze a livello di componente da un aspetto topologico e identificare se lo storage è la causa del problema di performance. La vista riepilogativa della topologia visualizza il percorso di i/o ed evidenzia il componente che presenta problemi di IOPS e latenza per decidere le fasi di risoluzione dei problemi. È inoltre possibile avere una vista estesa della topologia che raffigura ciascun componente separatamente insieme alla latenza di tale componente. È possibile selezionare un componente per determinare il percorso di i/o evidenziato attraverso i livelli.
+
+
+
+== Programma di raccolta dei dati vCenter
+
+Per il polling dei dati di configurazione di vCenter, Unified Manager segue la stessa pianificazione utilizzata per la raccolta dei dati di configurazione del cluster. Per informazioni sulla configurazione di vCenter e sulla pianificazione della raccolta dei dati sulle performance, vedere "attività di raccolta dati sulle performance e sulla configurazione del cluster".
+
+VCenter raccoglie campioni di dati delle performance in tempo reale di 20 secondi e li esegue in un massimo di 5 minuti. La pianificazione per la raccolta dei dati sulle performance di Unified Manager si basa sulle impostazioni predefinite del server vCenter. Unified Manager elabora i campioni di 5 minuti ottenuti da vCenter e calcola una media oraria degli IOPS e della latenza per i dischi virtuali, le macchine virtuali e gli host. Per gli archivi di dati, Unified Manager calcola una media oraria degli IOPS e della latenza dai campioni ottenuti da ONTAP. Questi valori sono disponibili all'inizio dell'ora. Le metriche delle performance non sono disponibili immediatamente dopo l'aggiunta di vCenter ed è disponibile solo all'inizio dell'ora successiva. Il polling dei dati sulle performance inizia al completamento di un ciclo di raccolta dei dati di configurazione.
+
+
+
+== Visualizzazione della topologia di riepilogo
+
+Per determinare i problemi di performance visualizzando le macchine virtuali in una topologia riepilogativa
+
+. Accedere a *VMWARE* > *Virtual Machines*.
+. Cercare la macchina virtuale digitandone il nome nella casella di ricerca. Puoi anche filtrare i risultati della ricerca in base a criteri specifici facendo clic sul pulsante *Filter*. Tuttavia, se non si riesce a trovare la macchina virtuale, assicurarsi che il vCenter corrispondente sia stato aggiunto e rilevato.
++
+[NOTE]
+====
+I server vCenter consentono caratteri speciali (ad esempio %, &, *, €, n., @, !, /, :, *, ?, "`, <, >, |, ;, ') nei nomi delle entità vSphere, ad esempio VM, cluster, datastore, cartella, o file. VMware vCenter Server e ESX/ESXi Server non escapano i caratteri speciali utilizzati nei nomi visualizzati. Tuttavia, quando il nome viene elaborato in Unified Manager, viene visualizzato in modo diverso. Ad esempio, una macchina virtuale denominata con il nome `%$VC_AIQUM_clone_191124%` Nel server vCenter viene visualizzato come `%25$VC_AIQUM_clone_191124%25` In Unified Manager. È necessario tenere nota di questo problema quando si esegue una query su una macchina virtuale con un nome contenente caratteri speciali.
+
+====
+. Controllare lo stato della macchina virtuale. Gli stati delle macchine virtuali vengono recuperati da vCenter. Sono disponibili i seguenti stati. Per ulteriori informazioni su questi stati, consultare la documentazione VMware.
++
+** Normale
+** Attenzione
+** Avviso
+** Non monitorato
+** Sconosciuto
+
+
+. Fare clic sulla freccia verso il basso accanto alla macchina virtuale per visualizzare la vista riepilogativa della topologia dei componenti nei livelli di calcolo, rete e storage. Viene evidenziato il nodo che presenta problemi di latenza. La vista di riepilogo mostra la latenza peggiore dei componenti. Ad esempio, se una macchina virtuale ha più di un disco virtuale, questa vista mostra il disco virtuale che ha la latenza peggiore tra tutti i dischi virtuali.
+. Per analizzare la latenza e il throughput del datastore in un determinato periodo di tempo, fare clic sul pulsante *workload Analyzer* nella parte superiore dell'icona dell'oggetto datastore. Si accede alla pagina workload Analysis (analisi del carico di lavoro), in cui è possibile selezionare un intervallo di tempo e visualizzare i grafici delle performance del datastore. Per ulteriori informazioni sull'analizzatore del carico di lavoro, consulta la sezione _risoluzione dei problemi relativi ai carichi di lavoro mediante l'analizzatore del carico di lavoro_.
++
+link:concept-troubleshooting-workloads-using-the-workload-analyzer.html["Risoluzione dei problemi dei carichi di lavoro utilizzando l'analizzatore dei carichi di lavoro"]
+
+
+
+
+
+== Visualizzazione della topologia estesa
+
+È possibile eseguire il drill-down di ciascun componente separatamente visualizzando la topologia estesa della macchina virtuale.
+
+. Dalla vista di riepilogo della topologia, fare clic su *Espandi topologia*. È possibile visualizzare la topologia dettagliata di ciascun componente separatamente con i numeri di latenza per ciascun oggetto. Se in una categoria sono presenti più nodi, ad esempio più nodi nel datastore o VMDK, il nodo con latenza peggiore viene evidenziato in rosso.
+. Per controllare il percorso io di un oggetto specifico, fare clic su tale oggetto per visualizzare il percorso io e la mappatura corrispondente. Ad esempio, per visualizzare la mappatura di un disco virtuale, fare clic sul disco virtuale per visualizzarne la mappatura evidenziata sul relativo VMDK. In caso di ritardo delle prestazioni di questi componenti, è possibile raccogliere più dati da ONTAP e risolvere il problema.
++
+[NOTE]
+====
+Le metriche non vengono riportate per i VMDK. Nella topologia, vengono visualizzati solo i nomi VMDK e non le metriche.
+
+====
+

@@ -1,0 +1,27 @@
+---
+permalink: online-help/concept-understanding-the-view-and-reports-relationship.html 
+sidebar: sidebar 
+keywords:  
+summary: Le visualizzazioni e le pagine di inventario diventano report quando vengono scaricate o programmate. 
+---
+= Comprensione della relazione tra visualizzazione e report
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le visualizzazioni e le pagine di inventario diventano report quando vengono scaricate o programmate.
+
+È possibile personalizzare e salvare viste e pagine di inventario per il riutilizzo. Quasi tutto ciò che è possibile visualizzare in Unified Manager può essere salvato, riutilizzato, pianificato e condiviso come report.
+
+Nell'elenco a discesa della vista, gli elementi con l'icona di eliminazione sono viste personalizzate esistenti create dall'utente o da un altro utente. Gli elementi senza icona sono viste predefinite fornite con Unified Manager. Le viste predefinite non possono essere modificate o eliminate.
+
+[NOTE]
+====
+Se si elimina una vista personalizzata dall'elenco, vengono eliminati anche i report pianificati che utilizzano tale vista. Se si modifica una visualizzazione personalizzata, i report che utilizzano tale visualizzazione conterranno la modifica alla successiva generazione e invio del report tramite e-mail in base alla pianificazione del report.
+
+====
+image::../media/view-drop-down-2.gif[menu a discesa view (visualizza) 2]
+
+Solo gli utenti con il ruolo di amministratore dell'applicazione o di amministratore dello storage possono visualizzare l'icona di eliminazione, modificare o eliminare una vista o modificare o eliminare un report pianificato.

@@ -1,0 +1,47 @@
+---
+permalink: health-checker/concept-configuring-the-destination-and-schedule-for-database-dump-backups.html 
+sidebar: sidebar 
+keywords:  
+summary: È possibile configurare le impostazioni di backup del database di Unified Manager per impostare il percorso di backup del database, il numero di conservazione e le pianificazioni di backup. È possibile attivare backup pianificati giornalieri o settimanali. Per impostazione predefinita, i backup pianificati sono disattivati. 
+---
+= Configurazione delle impostazioni di backup del database
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare le impostazioni di backup del database di Unified Manager per impostare il percorso di backup del database, il numero di conservazione e le pianificazioni di backup. È possibile attivare backup pianificati giornalieri o settimanali. Per impostazione predefinita, i backup pianificati sono disattivati.
+
+
+
+== Prima di iniziare
+
+* È necessario disporre del ruolo di operatore, amministratore dell'applicazione o amministratore dello storage.
+* È necessario disporre di almeno 150 GB di spazio disponibile nella posizione definita come percorso di backup.
++
+Si consiglia di utilizzare una postazione remota esterna al sistema host di Unified Manager.
+
+* Quando Unified Manager viene installato su un sistema Linux, verificare che l'utente "`jboss`" disponga dei permessi di scrittura per la directory di backup.
+* Non è consigliabile pianificare le operazioni di backup immediatamente dopo l'aggiunta di un nuovo cluster mentre Unified Manager sta raccogliendo 15 giorni di dati storici sulle performance.
+
+
+
+
+== A proposito di questa attività
+
+La prima volta che viene eseguito un backup è necessario più tempo rispetto ai backup successivi, poiché il primo backup è un backup completo. Un backup completo può superare 1 GB e può richiedere da tre a quattro ore. I backup successivi sono incrementali e richiedono meno tempo.
+
+
+
+== Fasi
+
+. Nel riquadro di spostamento a sinistra, fare clic su *General* > *Database Backup*.
+. Nella pagina *Database Backup*, fare clic su *Backup Settings*.
+. Configurare i valori appropriati per un percorso di backup, un numero di conservazione e una pianificazione.
++
+Il valore predefinito per il conteggio di conservazione è 10; è possibile utilizzare 0 per creare backup illimitati.
+
+. Selezionare il pulsante *pianificato giornaliero* o *pianificato settimanale*, quindi specificare i dettagli della pianificazione.
+. Fare clic su *Apply* (Applica).
+

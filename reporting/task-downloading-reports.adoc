@@ -1,0 +1,39 @@
+---
+permalink: reporting/task-downloading-reports.html 
+sidebar: sidebar 
+keywords:  
+summary: 'È possibile scaricare i report e salvare i dati su un"unità locale o di rete come file CSV o PDF. È possibile aprire file CSV con applicazioni per fogli di calcolo, come Microsoft Excel, e file PDF con lettori come Adobe Acrobat.' 
+---
+= Download di report
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile scaricare i report e salvare i dati su un'unità locale o di rete come file CSV (comma-Separated Values) o PDF. È possibile aprire file CSV con applicazioni per fogli di calcolo, come Microsoft Excel, e file PDF con lettori come Adobe Acrobat.
+
+
+
+== Fasi
+
+. Fare clic su image:../media/download-icon.gif[""] per scaricare il report in uno dei seguenti modi:
++
+|===
+| Scegliere | Per... 
+
+
+ a| 
+CSV
+ a| 
+Salvare il report come file CSV (comma-Separated Values) su un'unità locale o di rete.
+
+
+
+ a| 
+PDF
+ a| 
+Salvare il report come file .pdf su un disco locale o di rete.
+
+|===
+

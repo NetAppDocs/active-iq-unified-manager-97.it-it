@@ -1,0 +1,32 @@
+---
+permalink: online-help/concept-network-interface-performance-explorer-page.html 
+sidebar: sidebar 
+keywords:  
+summary: 'La pagina Performance/Network Interface Explorer (Esplora prestazioni/interfaccia di rete) fornisce una panoramica dettagliata delle performance per tutte le LIF all"interno di un cluster.' 
+---
+= Pagina Esplora prestazioni/interfaccia di rete
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pagina Performance/Network Interface Explorer (Esplora prestazioni/interfaccia di rete) fornisce una panoramica dettagliata delle performance per tutte le LIF all'interno di un cluster.
+
+La pagina Performance/Network Interface Explorer (Esplora prestazioni/interfaccia di rete) consente di tenere traccia e confrontare le prestazioni LIF in un determinato periodo di tempo, consentendo di eseguire il troubleshooting e di ottimizzare le prestazioni LIF.
+
+Utilizzando la funzionalità di visualizzazione e confronto è possibile confrontare le prestazioni di questa interfaccia di rete con:
+
+* Altre LIF che si trovano sulla stessa porta
+* Altre LIF che si trovano sulla stessa SVM
+* La porta su cui risiede LIF
+* SVM su cui risiede LIF
+
+
+La pagina Performance/Network Interface Explorer (Esplora prestazioni/interfaccia di rete) consente di:
+
+* Visualizza i problemi relativi alle soglie e i relativi dettagli
+* Monitora e confronta i dati delle performance LIF
+* Analizzare e risolvere i problemi relativi alla soglia
+* Analizzare e risolvere i problemi relativi alle prestazioni
+

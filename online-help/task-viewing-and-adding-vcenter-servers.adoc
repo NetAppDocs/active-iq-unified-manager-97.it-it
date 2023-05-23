@@ -1,0 +1,78 @@
+---
+permalink: online-help/task-viewing-and-adding-vcenter-servers.html 
+sidebar: sidebar 
+keywords: vCenter server 
+summary: 'Per visualizzare e risolvere i problemi relativi alle prestazioni delle macchine virtuali, è necessario aggiungere i vCenter associati all"istanza di Active IQ Unified Manager.' 
+---
+= Visualizzazione e aggiunta di server vCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per visualizzare e risolvere i problemi relativi alle prestazioni delle macchine virtuali (VM), è necessario aggiungere i vCenter associati all'istanza di Active IQ Unified Manager.
+
+
+
+== Prima di iniziare
+
+Prima di aggiungere o visualizzare i vCenter, verificare quanto segue:
+
+* Si conoscono i nomi di vCenter.
+* I vCenter sono raggiungibili per un rilevamento corretto.
+* Si conosce l'indirizzo IP e si dispone delle credenziali durante l'aggiunta di vCenter. Le credenziali devono essere di un amministratore vCenter o di un utente root con accesso in sola lettura a vCenter.
+* Il vCenter che si desidera aggiungere esegue vSphere 6.5 o versione successiva.
+* L'impostazione di raccolta dati nel server vCenter è impostata sul livello 3 per un intervallo di 5 minuti
+* I valori di latenza in vCenter sono configurati in millisecondi, e non in microsecondi, per il corretto calcolo dei valori di latenza.
+* L'ora di vCenter appartiene al fuso orario di vCenter.
+
+
+
+
+== A proposito di questa attività
+
+Per ogni vCenter aggiunto e rilevato, Unified Manager raccoglie i dati di configurazione, come i dettagli del server vCenter ed ESXi, il mapping ONTAP, i dettagli del datastore e il numero di macchine virtuali ospitate. Raccoglie ulteriormente le metriche delle performance dei componenti.
+
+
+
+== Fasi
+
+. Accedere a *VMWARE* > *vCenter* e verificare che vCenter sia disponibile nell'elenco.
++
+[NOTE]
+====
+Se vCenter non è disponibile, è necessario aggiungere vCenter.
+
+====
++
+.. Fare clic su *Aggiungi*.
+.. Aggiungere l'indirizzo IP corretto per vCenter e assicurarsi che la periferica sia raggiungibile.
+.. Aggiungere il nome utente e la password dell'amministratore o dell'utente root con accesso in sola lettura a vCenter.
+.. Aggiungere il numero di porta personalizzato se si utilizza una porta diversa da quella predefinita `443`.
+.. Fare clic su *Save* (Salva). Una volta completato il rilevamento, viene visualizzato un certificato del server da accettare.
++
+Quando si accetta il certificato, vCenter viene aggiunto all'elenco dei vCenter disponibili. L'aggiunta del dispositivo non comporta la raccolta di dati per le macchine virtuali associate e la raccolta avviene a intervalli pianificati.
+
+
+
+. Se vCenter è disponibile nella pagina *vCenters*, controllarne lo stato. Passare il mouse sul campo *Status* (Stato) per visualizzare se vCenter funziona come previsto o se è presente un avviso o un errore.
++
+[NOTE]
+====
+L'aggiunta di vCenter consente di visualizzare i seguenti stati. Tuttavia, i dati relativi a performance e latenza delle macchine virtuali corrispondenti potrebbero richiedere fino a un'ora dopo l'aggiunta di vCenter per essere riflessi con precisione.
+
+====
++
+** Verde: Normale, indica che vCenter è stato rilevato e che le metriche delle performance sono state raccolte correttamente
+** Giallo: Avviso (ad esempio, quando il livello delle statistiche per il server vCenter non è stato impostato su 3 o superiore per ottenere statistiche per ciascun oggetto)
+** Arancione: Errore (indica eventuali errori interni, ad esempio eccezioni, errori nella raccolta dei dati di configurazione o l'impossibilità di raggiungere vCenter). Fare clic sull'icona di visualizzazione della colonna (*Mostra/Nascondi*) per visualizzare il messaggio di stato relativo allo stato di vCenter e risolvere il problema.
+
+
+. Se vCenter non è raggiungibile o le credenziali sono state modificate, modificare i dettagli di vCenter. Selezionare vCenter, quindi fare clic su *Modifica*.
+. Apportare le modifiche necessarie nella pagina *Modifica VMware vCenter Server*.
+. Fare clic su *Save* (Salva).
++
+Una volta eseguito il rilevamento, lo stato di vCenter cambia.
+
+

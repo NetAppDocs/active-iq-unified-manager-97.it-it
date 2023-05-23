@@ -1,0 +1,38 @@
+---
+permalink: api-automation/concept-job-api.html 
+sidebar: sidebar 
+keywords:  
+summary: 'In Active IQ Unified Manager, operazioni come l"aggiunta e la modifica delle risorse vengono eseguite mediante invocazioni API sincrone e asincrone. Le invocazioni pianificate per l"esecuzione asincrona possono essere monitorate da un oggetto Job creato per tale invocazione. Ogni oggetto Job dispone di una chiave univoca per l"identificazione. Ogni oggetto Job restituisce l"URI dell"oggetto Job per consentire all"utente di accedere e tenere traccia dell"avanzamento del lavoro. È possibile utilizzare questa API per recuperare i dettagli di ciascuna esecuzione.' 
+---
+= Visualizzazione dei lavori
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In Active IQ Unified Manager, operazioni come l'aggiunta e la modifica delle risorse vengono eseguite mediante invocazioni API sincrone e asincrone. Le invocazioni pianificate per l'esecuzione asincrona possono essere monitorate da un oggetto Job creato per tale invocazione. Ogni oggetto Job dispone di una chiave univoca per l'identificazione. Ogni oggetto Job restituisce l'URI dell'oggetto Job per consentire all'utente di accedere e tenere traccia dell'avanzamento del lavoro. È possibile utilizzare questa API per recuperare i dettagli di ciascuna esecuzione.
+
+È possibile eseguire query su tutti gli oggetti Job. È inoltre possibile utilizzare la chiave lavoro e i dettagli dell'oggetto lavoro per eseguire il successivo set di operazioni sulle risorse.
+
+
+
+== Visualizzare i lavori
+
+È possibile utilizzare questo metodo per ottenere un elenco di tutti i lavori. Il corpo della risposta è costituito dai dettagli del lavoro di tutti i lavori. È inoltre possibile visualizzare i dettagli di un particolare oggetto Job specificando la chiave Job nell'URI. Il corpo della risposta è costituito dai dettagli identificati dalla chiave del lavoro. Nella risposta, l'ultimo oggetto Job viene riportato all'inizio. Se si desidera eseguire una query su un determinato oggetto Job, immettere l'ID Job del job.
+
+[cols="1a,1a,1a"]
+|===
+| Categoria | Verbo HTTP | Percorso 
+
+
+ a| 
+server di gestione
+ a| 
+OTTIENI
+ a| 
+`/management-server/jobs`
+
+`+/management-server/jobs/{key}+`
+
+|===

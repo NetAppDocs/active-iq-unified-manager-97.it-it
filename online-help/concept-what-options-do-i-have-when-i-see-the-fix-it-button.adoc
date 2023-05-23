@@ -1,0 +1,52 @@
+---
+permalink: online-help/concept-what-options-do-i-have-when-i-see-the-fix-it-button.html 
+sidebar: sidebar 
+keywords: fix it 
+summary: Il pulsante Correggi consente di risolvere un problema di cui Unified Manager è stato informato tramite un evento. 
+---
+= Quali sono le opzioni disponibili quando viene visualizzato il pulsante Fix it (Correggi)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il pulsante *Correggi* consente di risolvere un problema di cui Unified Manager è stato informato tramite un evento.
+
+Si consiglia di fare clic sul pulsante *Correggi* per risolvere il problema quando è disponibile. Tuttavia, se non si è sicuri di voler risolvere il problema come consigliato da Unified Manager, è possibile eseguire le seguenti operazioni:
+
+[cols="1a,1a"]
+|===
+| Cosa vuoi fare? | Azione 
+
+
+ a| 
+Chiedere a Unified Manager di risolvere il problema.
+ a| 
+Fare clic sul pulsante *Correggi*.
+
+
+
+ a| 
+Non risolvere il problema in questo momento e nascondere questa azione di gestione.
+ a| 
+Fare clic sulla freccia verso il basso e fare clic su *Elimina*.
+
+
+
+ a| 
+Visualizza i dettagli dell'evento per comprendere meglio il problema.
+ a| 
+Fare clic sulla freccia verso il basso e fare clic su *View Event Details* (Visualizza dettagli evento) per visualizzare la pagina Event Details (Dettagli evento).
+
+
+
+ a| 
+Visualizzare i dettagli di questo oggetto di storage in modo da comprendere meglio il problema.
+ a| 
+Fare clic sul nome dell'oggetto di storage per visualizzare i dettagli nella pagina Performance Explorer (Esplora prestazioni) o Health Details (Dettagli integrità).
+
+|===
+Prima di fare clic sul pulsante *Correggi*, annotare il nome dell'oggetto (ad esempio "`cluster fas8040-206`" o "`volume phil_DB`") In modo da poter controllare l'elenco degli eventi in un secondo momento per verificare che l'evento corrispondente si trovi nello stato obsoleto, il che significa che la correzione è stata eseguita correttamente.
+
+In alcuni casi, la correzione viene riflessa nel successivo polling di configurazione di 15 minuti. In altri casi, la verifica della modifica della configurazione e l'obsoleto dell'evento possono richiedere fino a 24 ore.

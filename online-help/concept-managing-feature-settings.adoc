@@ -1,0 +1,23 @@
+---
+permalink: online-help/concept-managing-feature-settings.html 
+sidebar: sidebar 
+keywords: uploading scripts,API gateway,SLO or policy-based storage management,timeout,Active IQ platform events 
+summary: 'La pagina Impostazioni funzionalità consente di attivare e disattivare funzionalità specifiche in Active IQ Unified Manager, come la creazione e la gestione di oggetti di storage in base a policy, l"abilitazione di gateway API, il caricamento di script per la gestione degli avvisi, il timeout di una sessione in caso di inattività per un periodo di tempo specifico, E la disattivazione della ricezione degli eventi della piattaforma Active IQ.' 
+---
+= Gestione delle impostazioni delle funzioni
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pagina Impostazioni funzionalità consente di attivare e disattivare funzionalità specifiche in Active IQ Unified Manager, come la creazione e la gestione di oggetti di storage in base a policy, l'abilitazione di gateway API, il caricamento di script per la gestione degli avvisi, il timeout di una sessione in caso di inattività per un periodo di tempo specifico, E la disattivazione della ricezione degli eventi della piattaforma Active IQ.
+
+[NOTE]
+====
+La pagina Feature Settings (Impostazioni funzionalità) è disponibile solo per gli utenti con ruolo di amministratore dell'applicazione.
+
+====
+Per informazioni sul caricamento degli script, consulta "`abilitazione e disabilitazione della capacità di caricare gli script`"
+
+Abilitazione e disabilitazione della capacità di caricare gli script

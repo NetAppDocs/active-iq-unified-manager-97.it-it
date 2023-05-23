@@ -1,0 +1,149 @@
+---
+permalink: online-help/reference-logical-interface-events.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Gli eventi LIF forniscono informazioni sullo stato delle LIF, in modo da poter monitorare eventuali problemi. Gli eventi sono raggruppati in base all"area di impatto e includono il nome dell"evento e della trap, il livello di impatto, il tipo di origine e la severità.' 
+---
+= Eventi LIF (Logical Interface)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gli eventi LIF forniscono informazioni sullo stato delle LIF, in modo da poter monitorare eventuali problemi. Gli eventi sono raggruppati in base all'area di impatto e includono il nome dell'evento e della trap, il livello di impatto, il tipo di origine e la severità.
+
+
+
+== Area di impatto: Disponibilità
+
+[cols="1a,1a,1a,1a"]
+|===
+| Nome evento (nome trap) | Livello di impatto | Tipo di origine | Severità 
+
+
+ a| 
+Stato LIF inattivo(ocumEvtLifStatusDown)
+ a| 
+Rischio
+ a| 
+Interfaccia
+ a| 
+Errore
+
+
+
+ a| 
+Failover LIF non possibile (ocumEvtLifFailoverNotable)
+ a| 
+Rischio
+ a| 
+Interfaccia
+ a| 
+Attenzione
+
+
+
+ a| 
+LIF non alla porta home (ocumEvtLifNotAtHomePort)
+ a| 
+Rischio
+ a| 
+Interfaccia
+ a| 
+Attenzione
+
+|===
+
+
+== Area di impatto: Configurazione
+
+[cols="1a,1a,1a,1a"]
+|===
+| Nome evento (nome trap) | Livello di impatto | Tipo di origine | Severità 
+
+
+ a| 
+Percorso LIF non configurato (non applicabile)
+ a| 
+Evento
+ a| 
+Interfaccia
+ a| 
+Informazioni
+
+|===
+
+
+== Area di impatto: Performance
+
+[cols="1a,1a,1a,1a"]
+|===
+| Nome evento (nome trap) | Livello di impatto | Tipo di origine | Severità 
+
+
+ a| 
+Violazione della soglia critica dell'interfaccia di rete MB/s (ocumNetworkLifMbpsIncident)
+ a| 
+Incidente
+ a| 
+Interfaccia
+ a| 
+Critico
+
+
+
+ a| 
+Network Interface MB/s Warning Threshold Breached(ocumNetworkLifMbpsWarning)
+ a| 
+Rischio
+ a| 
+Interfaccia
+ a| 
+Attenzione
+
+
+
+ a| 
+Soglia critica interfaccia FCP MB/s violata (ocumFcpLifMbpsIncident)
+ a| 
+Incidente
+ a| 
+Interfaccia
+ a| 
+Critico
+
+
+
+ a| 
+FCP Interface MB/s Warning Threshold Breached(ocumFcpLifMbpsWarning)
+ a| 
+Rischio
+ a| 
+Interfaccia
+ a| 
+Attenzione
+
+
+
+ a| 
+Soglia critica interfaccia FCP NVMf MB/s violata (ocumNvmfFcLifMbpsIncident)
+ a| 
+Incidente
+ a| 
+Interfaccia
+ a| 
+Critico
+
+
+
+ a| 
+NVMf FCP Interface MB/s Warning Threshold Breached(ocumNvmfFcLifMbpsWarning)
+ a| 
+Rischio
+ a| 
+Interfaccia
+ a| 
+Attenzione
+
+|===

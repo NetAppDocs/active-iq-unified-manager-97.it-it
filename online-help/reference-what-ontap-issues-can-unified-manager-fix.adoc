@@ -1,0 +1,63 @@
+---
+permalink: online-help/reference-what-ontap-issues-can-unified-manager-fix.html 
+sidebar: sidebar 
+keywords: fix it 
+summary: 'Questa tabella descrive i problemi di ONTAP che possono essere risolti direttamente dall"interfaccia utente di Unified Manager facendo clic sul pulsante Correggi.' 
+---
+= Quali problemi di ONTAP possono risolvere Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa tabella descrive i problemi di ONTAP che possono essere risolti direttamente dall'interfaccia utente di Unified Manager facendo clic sul pulsante *Correggi*.
+
+[cols="1a,1a,1a"]
+|===
+| Nome e descrizione dell'evento | Azione di gestione | Operazione "`Fix it`" 
+
+
+ a| 
+Spazio del volume pieno
+
+Indica che il volume è quasi esaurito e che ha superato la soglia di capacità massima. Questa soglia viene impostata per impostazione predefinita sul 90% delle dimensioni del volume.
+ a| 
+Attiva la crescita automatica del volume
+ a| 
+Unified Manager determina che la crescita automatica del volume non è configurata per questo volume, quindi attiva questa funzione in modo che il volume cresca o si riduca in base alla quantità di spazio utilizzato.
+
+
+
+ a| 
+L'opzione cf.takeover.on_panic è configurata su OFF
+
+L'opzione nodeshell "`cf.takeover.on_panic`" è impostata su *off*, che potrebbe causare un problema sui sistemi configurati con ha.
+ a| 
+Abilitare il Takeover in caso di panico
+ a| 
+Unified Manager invia il comando appropriato al cluster per modificare questa impostazione su *on*.
+
+
+
+ a| 
+Disattiva l'opzione nodeshell snapmirror.enable
+
+La vecchia opzione "`snapmirror.enable`" del nodeshell è impostata su *on*, che potrebbe causare un problema durante l'avvio dopo l'aggiornamento a ONTAP 9.3 o superiore.
+ a| 
+Impostare l'opzione snapmirror.enable su Off
+ a| 
+Unified Manager invia il comando appropriato al cluster per modificare questa impostazione su *Off*.
+
+
+
+ a| 
+Telnet attivato
+
+Indica un potenziale problema di sicurezza perché Telnet non è sicuro e passa i dati in modo non crittografato.
+ a| 
+Disattiva Telnet
+ a| 
+Unified Manager invia al cluster il seguente comando per disattivare Telnet: `security protocol modify -application telnet -enabled false`
+
+|===

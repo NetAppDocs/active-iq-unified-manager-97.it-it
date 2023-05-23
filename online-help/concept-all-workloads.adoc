@@ -1,0 +1,83 @@
+---
+permalink: online-help/concept-all-workloads.html 
+sidebar: sidebar 
+keywords: workloads,workloads 
+summary: 'La vista All workload (tutti i carichi di lavoro) visualizza l"elenco di tutti i carichi di lavoro disponibili nei cluster di un data center.' 
+---
+= Tutti i carichi di lavoro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La vista All workload (tutti i carichi di lavoro) visualizza l'elenco di tutti i carichi di lavoro disponibili nei cluster di un data center.
+
+La vista All workload (tutti i carichi di lavoro) elenca i carichi di lavoro dello storage associati ai cluster ONTAP gestiti da Unified Manager. La pagina consente inoltre di assegnare le policy di efficienza dello storage e i livelli di Performance Service ai carichi di lavoro dello storage.
+
+Quando si aggiungono cluster a Unified Manager, i carichi di lavoro dello storage su ciascun cluster vengono rilevati e visualizzati automaticamente in questa pagina, ad eccezione dei volumi FlexGroup e dei relativi componenti.
+
+Unified Manager inizia ad analizzare i carichi di lavoro per ottenere consigli (livelli consigliati di Performance Service) solo dopo l'avvio delle operazioni di i/o sui carichi di lavoro dello storage. Per i carichi di lavoro dello storage appena scoperti in cui non sono state eseguite operazioni di i/o, lo stato è "`Waiting for i/o`" (in attesa di i/o). Una volta iniziate le operazioni di i/o sui carichi di lavoro dello storage, Unified Manager avvia l'analisi e lo stato del carico di lavoro cambia in "`Learning...`". Al termine dell'analisi (entro 24 ore dall'inizio delle operazioni di i/o), vengono visualizzati i livelli di Performance Service consigliati per i carichi di lavoro dello storage.
+
+Utilizzando l'opzione *workload* > *All workload*, è possibile eseguire più attività:
+
+* Aggiungere o eseguire il provisioning dei carichi di lavoro dello storage
+* Visualizzare e filtrare l'elenco dei workload
+* Assegnare i livelli di Performance Service ai singoli carichi di lavoro dello storage
+* Assegnare i livelli di Performance Service consigliati dal sistema a tutti i carichi di lavoro non assegnati
+* Assegnare le policy di efficienza dello storage ai carichi di lavoro dello storage
+
+
+
+
+== Aggiunta o provisioning dei carichi di lavoro dello storage
+
+È possibile aggiungere o eseguire il provisioning dei carichi di lavoro dello storage a LUN supportati (che supportano protocolli iSCSI e FCP), condivisioni di file NFS e condivisioni SMB.
+
+
+
+== Visualizzazione e filtraggio dei carichi di lavoro
+
+Nella schermata All workload (tutti i carichi di lavoro), è possibile visualizzare tutti i carichi di lavoro del data center o cercare carichi di lavoro storage specifici in base ai livelli di servizio delle performance assegnati o ai nomi dei carichi di lavoro. È possibile utilizzare l'icona del filtro per inserire condizioni specifiche per la ricerca. È possibile eseguire la ricerca in base a diverse condizioni di filtro, ad esempio in base al cluster host o alla VM di storage. Se si seleziona l'opzione *Capacity Total*, è possibile eseguire la ricerca in base alla capacità totale dei carichi di lavoro. Il numero di carichi di lavoro restituiti può variare a seconda della condizione esatta del filtro immessa, poiché la capacità viene confrontata a livello di byte. La schermata visualizza le informazioni sullo storage per i carichi di lavoro, come il cluster host e la VM dello storage, insieme alle policy di performance service level e di efficienza dello storage, se presenti.
+
+La pagina consente inoltre di visualizzare i dettagli delle performance di un workload. È possibile visualizzare informazioni dettagliate sugli IOPS, la capacità e la latenza del carico di lavoro facendo clic sul pulsante *Choose / Order Columns* (Scegli / Ordina colonne) e selezionando le colonne specifiche da visualizzare. La colonna Performance View (visualizzazione prestazioni) visualizza gli IOPS medi e massimi per un carico di lavoro, quindi fare clic sull'icona dell'analizzatore del carico di lavoro per visualizzare l'analisi IOPS dettagliata. Il pulsante *Analyze workload* (analizza carico di lavoro) nella finestra a comparsa IOPS Analysis (analisi IOPS) consente di accedere alla pagina workload Analysis (analisi del carico di lavoro), in cui è possibile selezionare un intervallo di tempo e visualizzare i trend di latenza, throughput e capacità per il carico di lavoro selezionato. Per ulteriori informazioni sull'analizzatore del carico di lavoro, consulta la sezione _risoluzione dei problemi relativi ai carichi di lavoro mediante l'analizzatore del carico di lavoro_
+
+link:concept-troubleshooting-workloads-using-the-workload-analyzer.html["Risoluzione dei problemi dei carichi di lavoro utilizzando l'analizzatore dei carichi di lavoro"]
+
+
+
+== Assegnazione dei livelli di Performance Service ai carichi di lavoro dello storage
+
+È possibile assegnare un livello di servizio delle performance a uno o più carichi di lavoro dello storage. Utilizzando le diverse funzioni di navigazione sullo schermo, è possibile assegnare ai carichi di lavoro un Performance Service Level specifico o consigliato dal sistema.
+
+
+
+== Assegnazione dei livelli di Performance Service consigliati dal sistema a tutti i carichi di lavoro non assegnati
+
+È possibile assegnare i livelli di Performance Service a tutti i carichi di lavoro dello storage in un data center che non hanno PSL assegnati, a condizione che siano disponibili livelli di Performance Service consigliati dal sistema per i carichi di lavoro. Questa funzionalità non è efficace per i carichi di lavoro che non dispongono di livelli di Performance Service consigliati dal sistema. Per utilizzare questa funzionalità, fare clic sul pulsante *Assign System Recommended PSL* (Assegna PSL raccomandati dal sistema). Il sistema valuta internamente i livelli di Performance Service appropriati per i carichi di lavoro dello storage non assegnati e visualizza il numero totale di carichi di lavoro su cui è possibile assegnare i livelli di Performance Service.
+
+
+
+== Assegnazione delle policy di efficienza dello storage ai carichi di lavoro dello storage
+
+È possibile assegnare una policy di efficienza dello storage a uno o più carichi di lavoro dello storage. Utilizzando le diverse funzioni di navigazione sullo schermo, è possibile assegnare una policy di efficienza dello storage specifica ai carichi di lavoro dello storage.
+
+
+
+== Assegnare insieme il livello di servizio delle performance e la policy di efficienza dello storage
+
+È possibile assegnare insieme un livello di servizio delle performance e una policy di efficienza dello storage a un singolo workload. Attenersi alla seguente procedura:
+
+. Fare clic sull'icona di modifica della riga, quindi fare clic su *Modifica*.
++
+I campi *Assigned Performance Service Level* e *Storage Efficiency Policy* sono abilitati.
+
+. Selezionare il livello di servizio delle performance e la policy di efficienza dello storage richiesti.
+. Fare clic sull'icona del segno di spunta per applicare le modifiche.
+
+
+
+
+== Analisi dei criteri di performance e capacità per un carico di lavoro
+
+È possibile visualizzare le informazioni sulle performance relative a un carico di lavoro per agevolare la risoluzione dei problemi facendo clic sull'icona del grafico a barre nella colonna *visualizzazione delle performance*. Per visualizzare i grafici delle performance e della capacità nella pagina workload Analysis (analisi del carico di lavoro) per analizzare l'oggetto, fare clic sul pulsante *Analyze workload* (analizza carico di lavoro).
