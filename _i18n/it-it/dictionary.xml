@@ -9458,7 +9458,6 @@
   <block id="dea6a44f1acbd73729580434b2cd1271" category="list-text">Se si desidera visualizzare uno dei grafici in un formato a dimensione intera, fare clic su *Zoom View* (Vista zoom).</block>
   <block id="227f5acbef95998ccbfd9c680d0dab46" category="paragraph">In questo modo è possibile aprire più diagrammi di contatore in una finestra separata per confrontare i valori di capacità delle performance utilizzati con i valori IOPS o Mbps nello stesso intervallo di tempo.</block>
   <block id="91d9102f2b20d2487525cb47bf7d79a5" category="summary">Documentazione per Active IQ Unified Manager, documenti AIQUM, documenti UM</block>
-  <block id="4a58c6ba2ac7cf0f2cd001d223b14e50" category="doc">Documentazione Active IQ Unified Manager</block>
   <block id="2eae025ea973517628652d442af14e33" category="summary">Gli utenti Windows possono scaricare e installare uno strumento per recuperare il pacchetto di supporto dal server Unified Manager. È possibile inviare il pacchetto di supporto al supporto tecnico per una diagnosi più dettagliata di un problema. FileZilla o WinSCP sono esempi di strumenti che è possibile utilizzare.</block>
   <block id="b556355f557258f29b4f65f49802f628" category="doc">Recupero del bundle di supporto utilizzando un client Windows</block>
   <block id="71cf84a7c9b2477f4762c159f21f8cc0" category="paragraph">Per eseguire questa attività, è necessario essere l'utente che esegue la manutenzione.</block>
@@ -12478,4 +12477,5 @@
   <block id="ec41073735b02d172b0bc1ee60ea5ec9" category="paragraph"><block ref="ec41073735b02d172b0bc1ee60ea5ec9" category="inline-link-rx"></block></block>
   <block id="20bde173581d26c0c8c8f826587fe6b1" category="paragraph">Quando si visualizzano tutti i cluster, questo pannello visualizza il numero di cluster conformi o non conformi, il numero di SVM conformi o non conformi e il numero di volumi crittografati o non crittografati. La conformità è basata su<block ref="736160f7960b3abe2152eecfe71d1435" category="inline-link-rx"></block>. Fare clic sulla freccia destra nella parte superiore del pannello per visualizzare i dettagli di sicurezza per tutti i cluster nella pagina Security (sicurezza).</block>
   <block id="796f4a9be8e525f7e4d64c24bac529c9" category="paragraph"><block ref="796f4a9be8e525f7e4d64c24bac529c9" category="inline-link-rx"></block></block>
+  <block id="dd5452c4b1a9b73792ee149d9b8c4bd0" category="sidebar">Documentazione di Active IQ Unified Manager 9,7</block>
 </blocks>
