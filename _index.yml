@@ -1,9 +1,11 @@
 ---
 indexpage:
   title: Documentazione di Active IQ Unified Manager 9,7
-  summary: Documentazione per Active IQ Unified Manager, documenti AIQUM, documenti
-    UM
-  keywords: aoqum docs, um, ontap storage systems
+  summary: Active IQ Unified Manager (Unified Manager, in precedenza OnCommand Unified
+    Manager) consente di monitorare e gestire lo stato di salute e le performance
+    dei sistemi storage ONTAP da una singola interfaccia. Questa libreria di documentazione
+    include informazioni sulla versione 9,7.
+  keywords: aoqum docs, um, ontap storage systems, active iq unified manager, 9.7
   lead: Active IQ Unified Manager (Unified Manager, in precedenza OnCommand Unified
     Manager) consente di monitorare e gestire lo stato di salute e le performance
     dei sistemi storage ONTAP da una singola interfaccia. Questa libreria di documentazione
